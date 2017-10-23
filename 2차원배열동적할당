@@ -1,18 +1,24 @@
-int **mat=NULL;
-	mat = new int*[5];
-	for (int i = 0; i < 5; i++)
+int **arr; // 이중 포인터 생성  
+
+
+
+arr = (int**) malloc ( sizeof(int*) * height ); //arr[height][width] 생성
+for(int i=0; i<height; i++)
+    arr[i] = (int*) malloc ( sizeof(int) * width );
+    
+
+arr = (int**)malloc(sizeof(int*) * N);     //arr[N][N] and initialize to zero
+	for (int i = 0; i < N; i++)
 	{
-		mat[i] = new int[3];
+		arr[i] = (int*)malloc(sizeof(int) * N);
+		for (int j = 0; j < N; j++)
+			arr[i][j] = { 0 };
 	}
-	
-	
-// mat[5][3] 이렇게 생성
+    
 
+-------------------------------------------------------------------------------------
 
-for (int i = 0; i < 5; i++)   //행숫자
-	{
-		delete[] mat[i];
-	}
-	delete[] mat;
-
-// 이렇게 삭제
+for(int i=0; i<height; i++){
+    free(arr[i]);
+}
+free(arr);
