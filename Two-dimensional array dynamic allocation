@@ -1,8 +1,7 @@
-int **arr; // 이중 포인터 생성  
+int **arr; // Created as a double pointer.
 
 
-
-arr = (int**) malloc ( sizeof(int*) * height ); //arr[height][width] 생성
+arr = (int**) malloc ( sizeof(int*) * height ); //arr[height][width] 
 for(int i=0; i<height; i++)
     arr[i] = (int*) malloc ( sizeof(int) * width );
     
@@ -18,7 +17,5 @@ arr = (int**)malloc(sizeof(int*) * N);     //arr[N][N] and initialize to zero
 
 -------------------------------------------------------------------------------------
 
-for(int i=0; i<height; i++){
-    free(arr[i]);
-}
+for(int i=0; i<height; i++) free(arr[i]);
 free(arr);
