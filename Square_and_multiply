@@ -1,0 +1,18 @@
+int square_and_multiply(int a, int x, int n) //Quickly compute  y = a ^ x mod n
+{
+	if (x == 0)	return 1;
+
+	int r = 1, length = log2(x) + 1;
+
+	for (int i = length - 1; i >= 0; i--)
+	{
+		r = (r*r)%n;
+
+		if (x >> i & 1) // If the i-th bit on the left is 1
+			r = (r*a)%n;
+	}
+	return r;
+}
+
+// If you want to understand this algorithm, look at the youtube below.
+// https://www.youtube.com/watch?v=rdMaG7s-lE4 
