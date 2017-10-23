@@ -1,0 +1,15 @@
+int square_and_multiply(int a, int x, int n) //y=a^x mod n 을  계산
+{
+	if (x == 0)	return 1;
+
+	int r = 1, length = log2(x) + 1;
+
+	for (int i = length - 1; i >= 0; i--)
+	{
+		r = (r*r)%n;
+
+		if (x >> i & 1) //왼쪽에서 i번째 비트가 1이면
+			r = (r*a)%n;
+	}
+	return r;
+}
