@@ -1,0 +1,24 @@
+bool Is_prime_number(int n)
+{
+	if (n <= 1) return false;
+
+	for (int i = 2; (i*i) <= n; i++)
+		if (n%i == 0)
+			return false;
+
+	return true;
+}
+
+void Factorization(vector<int> &arr, int N)
+{
+	for (int i = 2; i <= N; i++)
+	{
+		if (N%i == 0 && Is_prime_number(i))
+		{
+			arr.push_back(i);
+			N /= i;
+		}
+	}
+}
+
+// Store the prime numbers of N in the arr array.
