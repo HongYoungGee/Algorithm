@@ -11,3 +11,5 @@ int combination(int a, int b) // Compute aCb
 
 	return cache[a][b] = (combination(a - 1, b) + combination(a - 1, b - 1)) % INF;
 }
+
+// https://www.acmicpc.net/problem/13239
