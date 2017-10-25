@@ -24,3 +24,6 @@ void quickSort(int arr[], int left, int right)
 
 // The i-th element is fixed. (Alignment is completed and position does not change)
 // j becomes i-1 after the while statement.
+
+// Reasons to choose a pivot in the middle.
+// https://en.wikipedia.org/wiki/Quicksort#Formal_analysis
