@@ -1,25 +1,26 @@
-void quickSort(int arr[], int left, int right) {
-	int i = left, j = right, aux,tmp;
-	int pivot = arr[(left + right) / 2];
-	while (i <= j) {
-		while (arr[i] < pivot) {
-			i++;
-		}
-		while (arr[j] > pivot) {
-			j--;
-		}
-		if (i <= j) {
-			tmp = arr[i];
+void quickSort(int arr[], int left, int right) 
+{
+	int i = left, j = right, temp;
+	int pivot = arr[(left + right) / 2]; //Select the pivot in the middle. (To prevent worst case)
+
+	while (i <= j) //At the end of the while function, the position of the pivot element is fixed to 'i'.
+	{
+		while (arr[i] < pivot) i++;
+		while (arr[j] > pivot) j--;
+
+		if (i <= j) 
+		{
+			temp = arr[i];
 			arr[i] = arr[j];
-			arr[j] = tmp;
+			arr[j] = temp;
 			i++;
 			j--;
 		}
 	}
-	if (left < j) {
-		quickSort(arr, left, j);
-	}
-	if (i < right) {
-		quickSort(arr, i, right);
-	}
+
+	if (left < j) quickSort(arr, left, j); 
+	if (i < right) quickSort(arr, i, right);
 }
+
+// The i-th element is fixed. (Alignment is completed and position does not change)
+// j becomes i-1 after the while statement.
