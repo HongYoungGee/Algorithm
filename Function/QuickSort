@@ -3,7 +3,7 @@ void quickSort(int arr[], int left, int right)
 	int i = left, j = right, temp;
 	int pivot = arr[(left + right) / 2]; //Select the pivot in the middle. (To prevent worst case)
 
-	while (i <= j) //At the end of the while function, the position of the pivot element is fixed to 'i'.
+	while (i <= j) 
 	{
 		while (arr[i] < pivot) i++;
 		while (arr[j] > pivot) j--;
@@ -22,8 +22,8 @@ void quickSort(int arr[], int left, int right)
 	if (i < right) quickSort(arr, i, right);
 }
 
-// The i-th element is fixed. (Alignment is completed and position does not change)
 // j becomes i-1 after the while statement.
+// All numbers from left to j are smaller than i to right.
 
 // Reasons to choose a pivot in the middle.
 // https://en.wikipedia.org/wiki/Quicksort#Formal_analysis
