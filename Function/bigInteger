@@ -1,0 +1,49 @@
+// b is the part beyond the 'long long' range.
+// Because it is an 'unsigned' type, only positive numbers are allowed. 
+
+#define M 1000000000000000000UL
+class bigInteger
+{
+private:
+	unsigned long long a, b; // b is the part beyond the 'long long' range.
+
+public:
+	bigInteger(unsigned long long a = 0)
+	{
+		this->a = a;
+		this->b = 0;
+	};
+
+	void print()
+	{
+		if (b == 0)
+			printf("%llu", a);
+		else
+			printf("%llu%018llu", b, a);
+	}
+
+	bigInteger &operator+(const bigInteger &val)
+	{
+		b = b + val.b + (a + val.a) / M;
+		a = (a + val.a) % M;
+
+		return *this;
+	}
+
+	bigInteger &operator+=(const bigInteger &val)
+	{
+		*this = this->operator+(val);
+
+		return *this;
+	}
+
+	bool operator!=(unsigned long long a)
+	{
+		return this->a != a;
+	}
+
+	bool operator!=(const bigInteger &val)
+	{
+		return a != val.a || b != val.b;
+	}
+};
