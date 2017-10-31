@@ -24,3 +24,5 @@ int main()
 			temp2 = s[i].second;
 		}
 }
+
+//pair를 sort하면 앞에꺼부터 우선
