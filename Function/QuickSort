@@ -22,7 +22,6 @@ void quickSort(int arr[], int left, int right)
 	if (i < right) quickSort(arr, i, right);
 }
 
-// j becomes i-1 after the while statement.
 // All numbers from left to j are smaller than i to right.
 
 // Reasons to choose a pivot in the middle.
