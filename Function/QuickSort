@@ -1,28 +1,25 @@
-void quickSort(int arr[], int left, int right) 
+void swap(int &a, int &b){ int temp = a;  a = b; b = temp; }
+
+void quicksort(int arr[], int start, int end)
 {
-	int i = left, j = right, temp;
-	int pivot = arr[(left + right) / 2]; //Select the pivot in the middle. (To prevent worst case)
+	if (start > end) return;
 
-	while (i <= j) 
+	
+	int pivot = start, i=start+1, j=end;
+	swap(arr[start], arr[(start + end) / 2]); //pivot in the middle
+
+	while (i <= j)
 	{
-		while (arr[i] < pivot) i++;
-		while (arr[j] > pivot) j--;
+		while (arr[i] <= arr[pivot] && i<=end) i++; // 더 큰수를 찾는다.
+		while (arr[j] >= arr[pivot] && j>start) j--;
 
-		if (i <= j) 
-		{
-			temp = arr[i];
-			arr[i] = arr[j];
-			arr[j] = temp;
-			i++;
-			j--;
-		}
+		if (i > j) swap(arr[j], arr[pivot]);
+		else swap(arr[i], arr[j]);
 	}
 
-	if (left < j) quickSort(arr, left, j); 
-	if (i < right) quickSort(arr, i, right);
+	quicksort(arr, start, j - 1);
+	quicksort(arr, j + 1, end);
 }
-
-// All numbers from left to j are smaller than i to right.
 
 // Reasons to choose a pivot in the middle.
 // https://en.wikipedia.org/wiki/Quicksort#Formal_analysis
