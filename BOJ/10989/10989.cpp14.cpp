@@ -9,11 +9,11 @@ int main()
 {
 	int n, arr[10001] = { 0 },temp;
 	
-	cin >> n;
+	scanf("%d",&n);
 
 	while (n--)
 	{
-		cin >> temp;
+		scanf("%d",&temp);
 		arr[temp]++;
 	}
 
