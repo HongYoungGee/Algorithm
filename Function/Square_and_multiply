@@ -1,4 +1,4 @@
-int square_and_multiply(int a, int x, int n) //Quickly compute  y = a ^ x mod n
+int square_and_multiply(int a, int x, int n) //compute  y = a ^ x mod n Quickly
 {
 	if (x == 0)	return 1;
 
